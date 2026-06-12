@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { UtensilsCrossed } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -8,10 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2.5 text-white font-extrabold text-lg mb-3">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center">
-                <UtensilsCrossed className="w-4 h-4 text-white" />
-              </div>
-              MealHub
+              <Image src="/logo.png" alt="7Dash" width={32} height={32} className="rounded-lg" />
+              7Dash
             </div>
             <p className="text-sm leading-relaxed">
               Fast food delivery from your favourite local restaurants.
@@ -34,7 +32,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-10 pt-6 text-center text-xs text-gray-600">
-          © {new Date().getFullYear()} MealHub. All rights reserved.
+          © {new Date().getFullYear()} 7Dash. All rights reserved.
         </div>
       </div>
     </footer>

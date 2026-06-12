@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { ShoppingCart, User, LogOut, Menu, X, UtensilsCrossed, ChevronDown } from 'lucide-react'
+import { ShoppingCart, User, LogOut, Menu, X, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
 import { useCart } from '@/components/cart/CartProvider'
 import { createClient } from '@/lib/supabase/client'
@@ -34,11 +35,9 @@ export default function Navbar({ user }: NavbarProps) {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-600 to-violet-700 flex items-center justify-center shadow group-hover:shadow-purple-200 transition-all">
-              <UtensilsCrossed className="w-4.5 h-4.5 text-white" style={{ width: 18, height: 18 }} />
-            </div>
-            <span className="text-xl font-extrabold bg-gradient-to-r from-purple-700 to-violet-500 bg-clip-text text-transparent tracking-tight">
-              MealHub
+            <Image src="/logo.png" alt="7Dash" width={36} height={36} className="rounded-xl" />
+            <span className="text-xl font-extrabold text-gray-900 tracking-tight">
+              7Dash
             </span>
           </Link>
 

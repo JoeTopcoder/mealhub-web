@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type FormEvent } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { UtensilsCrossed, Mail, Lock, User, Eye, EyeOff } from 'lucide-react'
@@ -16,7 +16,7 @@ export default function SignupPage() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState(false)
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     if (password.length < 6) { setError('Password must be at least 6 characters'); return }
     setLoading(true)

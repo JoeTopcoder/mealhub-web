@@ -88,7 +88,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
   }
 }
 
-const STORAGE_KEY = 'mealhub_cart'
+const STORAGE_KEY = '7dash_cart'
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(cartReducer, { items: [], restaurantId: null, restaurantName: null }, (init) => {

@@ -6,11 +6,11 @@ import Footer from '@/components/layout/Footer'
 import { createClient } from '@/lib/supabase/server'
 
 export const metadata: Metadata = {
-  title: 'MealHub — Food Delivery',
+  title: '7Dash — Food. Fast. Delivered.',
   description: 'Order food from your favourite local restaurants',
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: import('react').ReactNode }) {
   let profile = null
   try {
     const supabase = await createClient()

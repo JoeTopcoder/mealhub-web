@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, type FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import { MapPin, CreditCard, Loader2 } from 'lucide-react'
 import { loadStripe } from '@stripe/stripe-js'
@@ -27,7 +27,7 @@ function CheckoutForm() {
   const serviceFee = parseFloat(((subtotal * SERVICE_FEE_RATE) + SERVICE_FLAT).toFixed(2))
   const total = subtotal + DELIVERY_FEE + serviceFee
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault()
     if (!stripe || !elements) return
     if (!address.trim()) { setError('Please enter a delivery address'); return }
