@@ -34,7 +34,9 @@ export default function Navbar({ user }: NavbarProps) {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <img src="/logo.jpg" alt="7Dash" className="rounded-xl" style={{ width: 36, height: 36 }} />
+            <div className="rounded-xl bg-black overflow-hidden flex-shrink-0" style={{ width: 40, height: 40 }}>
+              <img src="/logo.jpg" alt="7Dash" className="w-full h-full object-cover" />
+            </div>
             <span className="text-xl font-extrabold text-gray-900 tracking-tight">
               7Dash
             </span>

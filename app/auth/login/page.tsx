@@ -33,7 +33,9 @@ export default function LoginPage() {
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-12 bg-gradient-to-br from-purple-50 via-white to-violet-50">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <img src="/logo.jpg" alt="7Dash" className="rounded-2xl mx-auto mb-4 shadow-lg" style={{ width: 64, height: 64 }} />
+          <div className="rounded-2xl bg-black overflow-hidden mx-auto mb-4 shadow-lg" style={{ width: 80, height: 80 }}>
+            <img src="/logo.jpg" alt="7Dash" className="w-full h-full object-cover" />
+          </div>
           <h1 className="text-2xl font-extrabold text-gray-900">Welcome back</h1>
           <p className="text-gray-500 mt-1 text-sm">Sign in to your 7Dash account</p>
         </div>

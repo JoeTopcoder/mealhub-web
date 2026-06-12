@@ -7,7 +7,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2.5 text-white font-extrabold text-lg mb-3">
-              <img src="/logo.jpg" alt="7Dash" className="rounded-lg" style={{ width: 32, height: 32 }} />
+              <div className="rounded-lg bg-black overflow-hidden flex-shrink-0" style={{ width: 36, height: 36 }}>
+                <img src="/logo.jpg" alt="7Dash" className="w-full h-full object-cover" />
+              </div>
               7Dash
             </div>
             <p className="text-sm leading-relaxed">
