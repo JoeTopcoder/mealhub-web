@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { ChefHat, Mail, Lock, Eye, EyeOff } from 'lucide-react'
+import { UtensilsCrossed, Mail, Lock, Eye, EyeOff } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
 export default function LoginPage() {
@@ -30,17 +30,17 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-12 bg-gradient-to-br from-purple-50 to-white">
+    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-12 bg-gradient-to-br from-purple-50 via-white to-violet-50">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-purple-600 mb-4">
-            <ChefHat className="w-8 h-8 text-white" />
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-violet-700 mb-4 shadow-lg shadow-purple-200">
+            <UtensilsCrossed className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
+          <h1 className="text-2xl font-extrabold text-gray-900">Welcome back</h1>
           <p className="text-gray-500 mt-1 text-sm">Sign in to your MealHub account</p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <div className="bg-white rounded-3xl shadow-xl shadow-gray-100 border border-gray-100 p-8">
           <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
               <div className="bg-red-50 text-red-700 text-sm p-3 rounded-xl border border-red-100">
@@ -84,9 +84,9 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-purple-600 text-white py-3 rounded-xl font-semibold text-sm hover:bg-purple-700 transition-colors disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+              className="w-full bg-gradient-to-r from-purple-600 to-violet-700 text-white py-3.5 rounded-xl font-bold text-sm hover:opacity-90 transition-all shadow-md hover:shadow-purple-200 disabled:opacity-60 disabled:cursor-not-allowed mt-2"
             >
-              {loading ? 'Signing in…' : 'Sign in'}
+              {loading ? 'Signing in…' : 'Sign in →'}
             </button>
           </form>
 

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ChefHat } from 'lucide-react'
+import { UtensilsCrossed } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -7,8 +7,10 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <div className="flex items-center gap-2 text-white font-bold text-lg mb-3">
-              <ChefHat className="w-6 h-6 text-purple-400" />
+            <div className="flex items-center gap-2.5 text-white font-extrabold text-lg mb-3">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center">
+                <UtensilsCrossed className="w-4 h-4 text-white" />
+              </div>
               MealHub
             </div>
             <p className="text-sm leading-relaxed">
