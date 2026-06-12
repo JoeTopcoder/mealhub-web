@@ -11,17 +11,20 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const supabase = await createClient()
-  const { data: { user: authUser } } = await supabase.auth.getUser()
-
   let profile = null
-  if (authUser) {
-    const { data } = await supabase
-      .from('users')
-      .select('name, email')
-      .eq('id', authUser.id)
-      .single()
-    profile = data
+  try {
+    const supabase = await createClient()
+    const { data: { user: authUser } } = await supabase.auth.getUser()
+    if (authUser) {
+      const { data } = await supabase
+        .from('users')
+        .select('name, email')
+        .eq('id', authUser.id)
+        .single()
+      profile = data
+    }
+  } catch {
+    // Supabase unavailable or env vars missing — render without auth
   }
 
   return (

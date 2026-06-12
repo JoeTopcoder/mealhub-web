@@ -22,22 +22,31 @@ interface HomePageProps {
 
 export default async function HomePage({ searchParams }: HomePageProps) {
   const { q, category } = await searchParams
-  const supabase = await createClient()
 
-  let query = supabase
-    .from('restaurants')
-    .select('*')
-    .eq('is_verified', true)
-    .order('rating', { ascending: false })
+  let restaurants: Restaurant[] = []
+  let dbError = false
 
-  if (q) {
-    query = query.or(`name.ilike.%${q}%,cuisine_type.ilike.%${q}%,description.ilike.%${q}%`)
+  try {
+    const supabase = await createClient()
+    let query = supabase
+      .from('restaurants')
+      .select('*')
+      .eq('is_verified', true)
+      .order('rating', { ascending: false })
+
+    if (q) {
+      query = query.or(`name.ilike.%${q}%,cuisine_type.ilike.%${q}%,description.ilike.%${q}%`)
+    }
+    if (category) {
+      query = query.ilike('cuisine_type', `%${category}%`)
+    }
+
+    const { data, error } = await query.returns<Restaurant[]>()
+    if (error) dbError = true
+    else restaurants = data ?? []
+  } catch {
+    dbError = true
   }
-  if (category) {
-    query = query.ilike('cuisine_type', `%${category}%`)
-  }
-
-  const { data: restaurants } = await query.returns<Restaurant[]>()
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -94,6 +103,13 @@ export default async function HomePage({ searchParams }: HomePageProps) {
         ))}
       </div>
 
+      {/* DB error banner */}
+      {dbError && (
+        <div className="mb-6 bg-red-50 border border-red-100 text-red-700 text-sm rounded-2xl p-4 text-center">
+          Could not load restaurants — please check your environment variables in Vercel and redeploy.
+        </div>
+      )}
+
       {/* Results count */}
       {(q || category) && (
         <p className="text-sm text-gray-500 mb-4">
@@ -104,7 +120,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
       )}
 
       {/* Restaurant grid */}
-      {!restaurants || restaurants.length === 0 ? (
+      {restaurants.length === 0 ? (
         <div className="text-center py-20">
           <p className="text-5xl mb-4">🍽️</p>
           <p className="text-gray-500 font-medium">No restaurants found</p>
