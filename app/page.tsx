@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { Restaurant } from '@/lib/types'
 import RestaurantCard from '@/components/restaurants/RestaurantCard'
 import { Search } from 'lucide-react'
+import Link from 'next/link'
 
 const CATEGORIES = [
   { emoji: '🍳', name: 'Breakfast' },
@@ -107,7 +108,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
 
           {/* Category chips */}
           <div className="flex gap-2.5 overflow-x-auto pb-2 mb-8 no-scrollbar">
-            <a
+            <Link
               href="/"
               className={`flex-shrink-0 px-5 py-2 rounded-2xl text-sm font-semibold border-2 transition-all ${
                 !category
@@ -116,9 +117,9 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               }`}
             >
               All
-            </a>
+            </Link>
             {CATEGORIES.map(cat => (
-              <a
+              <Link
                 key={cat.name}
                 href={`/?category=${cat.name}`}
                 className={`flex-shrink-0 flex items-center gap-2 px-5 py-2 rounded-2xl text-sm font-semibold border-2 transition-all ${
@@ -129,7 +130,7 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               >
                 <span>{cat.emoji}</span>
                 <span>{cat.name}</span>
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -153,9 +154,9 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               )}
             </div>
             {(q || category) && (
-              <a href="/" className="text-sm font-medium text-purple-600 hover:text-purple-800 transition-colors">
+              <Link href="/" className="text-sm font-medium text-purple-600 hover:text-purple-800 transition-colors">
                 Clear filters ×
-              </a>
+              </Link>
             )}
           </div>
 
@@ -165,10 +166,10 @@ export default async function HomePage({ searchParams }: HomePageProps) {
               <p className="text-6xl mb-4">🍽️</p>
               <p className="text-lg font-semibold text-gray-700 mb-1">No restaurants found</p>
               <p className="text-sm text-gray-400 mb-6">Try a different search or category</p>
-              <a href="/"
+              <Link href="/"
                 className="inline-flex items-center gap-2 bg-purple-600 text-white text-sm font-semibold px-6 py-3 rounded-2xl hover:bg-purple-700 transition-colors shadow-md">
                 Browse all restaurants
-              </a>
+              </Link>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
