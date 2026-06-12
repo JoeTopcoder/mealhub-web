@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { ShoppingCart, User, LogOut, Menu, X, ChevronDown } from 'lucide-react'
 import { useState } from 'react'
@@ -35,7 +34,7 @@ export default function Navbar({ user }: NavbarProps) {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 group">
-            <Image src="/logo.png" alt="7Dash" width={36} height={36} className="rounded-xl" />
+            <img src="/logo.jpg" alt="7Dash" className="rounded-xl" style={{ width: 36, height: 36 }} />
             <span className="text-xl font-extrabold text-gray-900 tracking-tight">
               7Dash
             </span>

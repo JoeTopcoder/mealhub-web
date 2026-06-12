@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Footer() {
   return (
@@ -8,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2.5 text-white font-extrabold text-lg mb-3">
-              <Image src="/logo.png" alt="7Dash" width={32} height={32} className="rounded-lg" />
+              <img src="/logo.jpg" alt="7Dash" className="rounded-lg" style={{ width: 32, height: 32 }} />
               7Dash
             </div>
             <p className="text-sm leading-relaxed">
